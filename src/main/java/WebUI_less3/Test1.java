@@ -17,15 +17,8 @@ public class Test1 {
         options.addArguments("start-maximized");
 
 
-//        WebDriver driver = new ChromeDriver(options);
-//        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-//        driver.get("https://www.ozon.ru/");
+//        !!!!!!!!
 
-//        try {
-//            Thread.sleep(3000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
 
     }
 }
