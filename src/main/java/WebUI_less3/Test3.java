@@ -1,15 +1,18 @@
 package WebUI_less3;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
-public class Test1 {
+public class Test3 {
 
-//    Авторизация
+
+//    Добавление в корзину 3-ёх пакетов "юзерпиков"
     public static void main( String[] args ) {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
@@ -28,5 +31,14 @@ public class Test1 {
         WebElement webElement3 = driver.findElement(By.id("lj_loginwidget_password"));
         webElement3.sendKeys("Yamamoto_tsunetomo");
         webElement3.submit();
+
+        WebElement webElement4 = driver.findElement(By.xpath("//*[@id=\"js\"]/body/div[2]/header/div[1]/nav[1]/div/ul/li[4]/a"));
+        webElement4.click();
+        WebElement webElement5 = driver.findElement(By.linkText("Дополнительные юзерпики"));
+        webElement5.click();
+        WebElement webElement6 = driver.findElement(By.xpath("//*[@id=\"count_3\"]"));
+        webElement6.click();
+        WebElement webElement7 = driver.findElement(By.xpath("//*[@id=\"shop_userpics\"]/div[2]/ul[2]/li[1]/form/fieldset/div[2]/button"));
+        webElement7.click();
     }
 }
