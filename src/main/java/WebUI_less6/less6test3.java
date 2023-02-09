@@ -1,5 +1,6 @@
 package WebUI_less6;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,17 +38,23 @@ public class less6test3 extends Abstract {
     }
 
     public void addToBasketUserpics() {
-    profile1.click();
-    createFirstEntry.click();
-    header.sendKeys("Привет");
-    textarea.sendKeys("Мир");
-    create1.click();
-    create2.click();
         try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            profile1.click();
+            createFirstEntry.click();
+            header.sendKeys("Привет");
+            textarea.sendKeys("Мир");
+            create1.click();
+            create2.click();
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            profile2.click();
+        } catch (NoSuchElementException e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "Screenshot" + System.currentTimeMillis() + ".png");
         }
-    profile2.click();
+
     }
 }

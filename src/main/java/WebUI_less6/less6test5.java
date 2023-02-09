@@ -1,6 +1,7 @@
 package WebUI_less6;
 
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,18 +25,23 @@ public class less6test5 extends Abstract {
 
     public void like() {
         try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            getDriver().get("https://id77.livejournal.com/4858092.html?media&ila_campaign=medius&ila_location=main&ila_context=main_block");
+            like.click();
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            getDriver().get("https://www.livejournal.com/actions/");
+            reaction.click();
+        } catch (NoSuchElementException e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "Screenshot" + System.currentTimeMillis() + ".png");
         }
-        getDriver().get("https://id77.livejournal.com/4858092.html?media&ila_campaign=medius&ila_location=main&ila_context=main_block");
-        like.click();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        getDriver().get("https://www.livejournal.com/actions/");
-        reaction.click();
     }
 }

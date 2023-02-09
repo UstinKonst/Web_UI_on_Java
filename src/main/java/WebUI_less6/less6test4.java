@@ -1,5 +1,6 @@
 package WebUI_less6;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,14 +30,19 @@ public class less6test4 extends Abstract {
 
     public void addToFavorites() {
         try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            getDriver().get("https://ed-glezin.livejournal.com/1712231.html");
+            add.click();
+            publ.click();
+            profile.click();
+            favorites.click();
+        } catch (NoSuchElementException e){
+            Screenshot.makeScreenshot(getDriver(),
+                    "Screenshot" + System.currentTimeMillis() + ".png");
         }
-        getDriver().get("https://ed-glezin.livejournal.com/1712231.html");
-        add.click();
-        publ.click();
-        profile.click();
-        favorites.click();
     }
 }
